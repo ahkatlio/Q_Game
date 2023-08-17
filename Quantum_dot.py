@@ -22,17 +22,20 @@ camera.rotation_x = 30
 
 # Define a function to move the ball and camera
 def update():
+    speed = 0.1
+    if held_keys['left shift'] or held_keys['right shift']:
+        speed *= 2  # Double the speed if the shift key is held down
     if held_keys['w']:
-        ball.z += 0.1
+        ball.z += speed
         ball.rotation_z -= 10  # Rotate the ball
     if held_keys['s']:
-        ball.z -= 0.1
+        ball.z -= speed
         ball.rotation_z += 10  # Rotate the ball
     if held_keys['a']:
-        ball.x -= 0.1
+        ball.x -= speed
         ball.rotation_x -= 10  # Rotate the ball
     if held_keys['d']:
-        ball.x += 0.1
+        ball.x += speed
         ball.rotation_x += 10  # Rotate the ball
 
     # Set the camera's position to the ball's position
